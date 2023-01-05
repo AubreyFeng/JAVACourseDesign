@@ -30,7 +30,7 @@ public class BookService {
 		return JDBCUtil.query("select *from book where ISBN = ?", Book.class, key);
 	}
 
-	public static ArrayList<Book> queryByName(String key) {// ÊéÃû²éÑ¯ÊÇÄ£ºı²éÑ¯
+	public static ArrayList<Book> queryByName(String key) {// ä¹¦åæŸ¥è¯¢æ˜¯æ¨¡ç³ŠæŸ¥è¯¢
 		return JDBCUtil.query("select *from book where Name like ?", Book.class, "%" + key + "%");
 	}
 
@@ -47,11 +47,10 @@ public class BookService {
 	}
 
 	public static void showBook(ArrayList<Book> list) {
-		String title = String.format("%-11s\t%-10s\t%-8s\t%-10s\t%-14s\t%-10s\t%-10s", "Í¼Êé±àºÅ", "ÊéÃû", "Àà±ğ", "×÷Õß", "³ö°æÉç",
-				"³ö°æÈÕÆÚ", "µÇ¼ÇÈÕÆÚ");
+		String title = String.format("%-11s\t%-10s\t%-8s\t%-10s\t%-14s\t%-10s\t%-10s", "å›¾ä¹¦ç¼–å·", "ä¹¦å", "ç±»åˆ«", "ä½œè€…", "å‡ºç‰ˆç¤¾",
+				"å‡ºç‰ˆæ—¥æœŸ", "ç™»è®°æ—¥æœŸ");
 		System.out.println(title);
-		System.out.println(
-				"==============================================================================================================");
+		System.out.println("==============================================================================================================");
 		for (Book book : list)
 			System.out.println(book.toString());
 
